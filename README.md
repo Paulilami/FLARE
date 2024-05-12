@@ -56,6 +56,18 @@ FLARE integrates cutting-edge cryptographic methods, efficient data handling, an
 To deploy FLARE in your drone fleet, configure the system parameters in `config.h` according to your specific requirements. Compile the protocol using a standard C++ compiler supporting C++17 or later. Ensure that your drones are equipped with the necessary computational capabilities to handle real-time cryptographic operations and networking.
 
 ```bash
-g++ -std=c++17 -o drone_communication main.cpp communication.cpp network_manager.cpp security_manager.cpp handshake_protocol.cpp authentication.cpp drone_registry.cpp message_format.cpp utility.cpp logger.cpp
+# Compile the Advanced Drone Communication Protocol (ADCP)
+g++ -std=c++17 -pthread -o drone_communication main.cpp communication.cpp network_manager.cpp security_manager.cpp handshake_protocol.cpp authentication.cpp drone_registry.cpp message_format.cpp utility.cpp logger.cpp -lcrypto
+
+# Execute the compiled program
 ./drone_communication
+
+```
+Customization
+
+FLARE is designed for high configurability:
+
+- **Message Sizes and Frequencies:** Adjust these in config.h to balance between responsiveness and bandwidth consumption.
+- 2 **Security Settings:** Tailor the cryptographic parameters to meet your security level and performance requirements.
+Network Topology: Configure network_manager to optimize for the scale of your drone network and the typical operational area.
 
