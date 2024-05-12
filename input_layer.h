@@ -118,12 +118,12 @@ void InputLayer::handleDeterAnimalPresence(const std::vector<std::string>& args)
 
     double latitude = std::stod(args[0]);
     double longitude = std::stod(args[1]);
-    std::string deterrenceType = args[2];  // For example, "noise" or "light" to safely deter animals without harm
+    std::string deterrenceType = args[2];  // "noise" or "light" to safely deter animals without harm
 
     std::string message = "DeterAnimal|" + std::to_string(latitude) + "|" + std::to_string(longitude) + "|" + deterrenceType;
     auto drones = droneRegistry->getActiveDrones();
     for (auto& drone : drones) {
-        // Sending command to drones to execute deterrence at specified location
+        // Sending command to drones
         communication->sendMessage(drone.id, message);
     }
 }
