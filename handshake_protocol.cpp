@@ -1,4 +1,6 @@
 #include "handshake_protocol.h"
+#include <random>
+#include <chrono>
 
 HandshakeProtocol::HandshakeProtocol(SecurityManager* secManager) : securityManager(secManager) {}
 
@@ -26,8 +28,8 @@ void HandshakeProtocol::ifft(CArray& x) {
 }
 
 void HandshakeProtocol::correlate(const CArray& a, const CArray& b, CArray& result) {
-    CArray fa(a.size());
-    CArray fb(b.size());
+    size_t N = std::max(a.size(), b.size());
+    CArray fa(N), fb(N);
     std::copy(std::begin(a), std::end(a), std::begin(fa));
     std::copy(std::begin(b), std::end(b), std::begin(fb));
     fft(fa);
@@ -40,13 +42,50 @@ void HandshakeProtocol::correlate(const CArray& a, const CArray& b, CArray& resu
 
 bool HandshakeProtocol::initiateHandshake(const std::string& droneID) {
     std::string token = generateHandshakeToken();
-    return securityManager->encrypt(token).empty() == false;
+    std::string encryptedToken = securityManager->encrypt(token);
+    if (encryptedToken.empty()) {
+        return false;
+    }
+
+    if (!simulateNetworkSend(droneID, encryptedToken)) {
+        return false;
+    }
+
+    return true;
 }
 
 bool HandshakeProtocol::respondToHandshake(const std::string& droneID, const std::string& token) {
-    return securityManager->decrypt(token).empty() == false;
+    std::string decryptedToken = securityManager->decrypt(token);
+    if (decryptedToken.empty()) {
+        return false;
+    }
+
+    // Validate the token structure or content
+    if (!isValidToken(decryptedToken)) {
+        return false;
+    }
+
+    return true;
 }
 
 std::string HandshakeProtocol::generateHandshakeToken() {
-    return securityManager->generateRandomBytes(16);
+    auto now = std::chrono::high_resolution_clock::now();
+    auto duration = now.time_since_epoch();
+    auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>(duration).count();
+    std::string timeStr = std::to_string(microseconds);
+    std::string randomBytes = securityManager->generateRandomBytes(16);
+    return securityManager->encrypt(timeStr + randomBytes);
+}
+
+bool HandshakeProtocol::simulateNetworkSend(const std::string& droneID, const std::string& data) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::bernoulli_distribution d(0.95); // 95% chance of successful send
+
+    return d(gen);
+}
+
+bool HandshakeProtocol::isValidToken(const std::string& token) {
+    // Example check: token must be at least 32 characters long
+    return token.length() >= 32;
 }
