@@ -63,11 +63,25 @@ g++ -std=c++17 -pthread -o drone_communication main.cpp communication.cpp networ
 ./drone_communication
 
 ```
-Customization
+## Customization
 
-FLARE is designed for high configurability:
+**FLARE is designed for high configurability:**
 
 - **Message Sizes and Frequencies:** Adjust these in config.h to balance between responsiveness and bandwidth consumption.
-- 2 **Security Settings:** Tailor the cryptographic parameters to meet your security level and performance requirements.
-Network Topology: Configure network_manager to optimize for the scale of your drone network and the typical operational area.
+- **Security Settings:** Tailor the cryptographic parameters to meet your security level and performance requirements.
+- **Network Topology:** Configure network_manager to optimize for the scale of your drone network and the typical operational area.
+
+## Disclaimer
+
+FLARE: Fast Lightweight Authenticated Relay for Drones, is developed as a research project with the primary aim of enhancing communication technologies for civilian drone operations. This protocol is intended for academic purposes and civilian applications only. It allows for customization and adaptation to various types of non-military drones to facilitate advanced communication capabilities.
+
+**Restrictions on Use:**
+- **No Military Use**: This protocol is strictly prohibited for use in military applications or any form of weaponized drone operations.
+- **No Harmful or Destructive Use**: The use of this protocol to harm individuals, groups, or property is expressly forbidden.
+- **Research and Civilian Use Only**: This protocol is designed for research and development within civilian fields and should only be used to further development and understanding in such contexts.
+
+The developers of FLARE expressly disclaim any liability for misuse of this protocol. Users are responsible for ensuring their use of FLARE complies with all applicable laws and regulations. Any use of this protocol that contravenes these guidelines or engages in activities that result in harm or are intended for destructive purposes will be subject to legal action.
+
+By using FLARE, users agree to adhere to these conditions and acknowledge the potential legal and ethical consequences of misuse. We encourage all users to handle the protocol responsibly and with consideration towards the safety and well-being of others.
+
 
