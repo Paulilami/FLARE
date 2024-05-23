@@ -68,7 +68,7 @@ void Communication::queueMessage(const Message& msg) {
 void Communication::processIncomingMessage(const Message& msg) {
     if (securityManager->verifyMessage(msg)) {
         Logger::log("Message verified and ready for further processing.", LogLevel::Debug);
-        // Process the message according to its type and content
+        //...
     } else {
         Logger::log("Message verification failed.", LogLevel::Warning);
     }
@@ -80,7 +80,6 @@ void Communication::stopCommunication() {
 }
 
 bool Communication::getMessageToSend(Message& msg) {
-    // This should include logic to retrieve messages that need to be sent
-    // For now, we simulate with a placeholder
-    return false; // Simulate no message to send
+    //...
+    return false; //simulate 
 }
