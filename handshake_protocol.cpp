@@ -60,7 +60,7 @@ bool HandshakeProtocol::respondToHandshake(const std::string& droneID, const std
         return false;
     }
 
-    // Validate the token structure or content
+    //validate the token structure or content
     if (!isValidToken(decryptedToken)) {
         return false;
     }
@@ -80,12 +80,12 @@ std::string HandshakeProtocol::generateHandshakeToken() {
 bool HandshakeProtocol::simulateNetworkSend(const std::string& droneID, const std::string& data) {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::bernoulli_distribution d(0.95); // 95% chance of successful send
+    std::bernoulli_distribution d(0.95); //95% chance of successful send
 
     return d(gen);
 }
 
 bool HandshakeProtocol::isValidToken(const std::string& token) {
-    // Example check: token must be at least 32 characters long
+    //example check: token must be at least 32 characters long, can be changed in future implementations
     return token.length() >= 32;
 }
