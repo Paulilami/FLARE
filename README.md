@@ -2,11 +2,11 @@
 
 Hey Guys,
 
-Today I present you a protocol which I have developed within the past year. **FLARE: Fast Lightweight Authenticated Relay for Drones** is designed to address the complexities of modern drone communication within dynamic environments, offering a robust framework for peer-to-peer drone interactions.
+Today I present you a protocol which I have developed within the past year. **FLARE: Fast Lightweight Authenticated Relay for Drones** is designed to address the complexities of modern drone communication within dynamic environments, offering a robust framework for leightweight peer-to-peer drone interactions.
 
 ## Overview
 
-FLARE integrates cutting-edge cryptographic methods, efficient data handling, and advanced networking techniques to ensure secure, reliable, and efficient communication among drones. It's structured to be highly customizable and adaptable to a variety of operational requirements and technology stacks.
+FLARE integrates multiple cryptographic methods, efficient data handling, and advanced networking techniques to ensure secure, reliable, and efficient communication in drone systems. It's created to be highly customizable and adaptable to a variety of operational requirements and technology stacks.
 
 ## Components
 
