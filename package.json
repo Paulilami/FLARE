@@ -1,6 +1,6 @@
 {
   "name": "flare-drone-communication-system",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A lightweight Federated Gossip Protocol-based communication system for managing drones.",
   "main": "src/main.js",
   "scripts": {
