@@ -1,0 +1,32 @@
+{
+    "name": "flare",
+    "version": "1.0.0",
+    "description": "FLARE: Fast Lightweight Authenticated Relay for Drones",
+    "main": "src/main.js",
+    "scripts": {
+      "start": "node src/main.js",
+      "test": "mocha tests/**/*.test.js",
+      "lint": "eslint .",
+      "reset-config": "./scripts/resetConfig.sh",
+      "setup-drone": "./scripts/setupDrone.sh"
+    },
+    "keywords": [
+      "drone",
+      "communication",
+      "gossip-protocol",
+      "udp",
+      "peer-to-peer"
+    ],
+    "author": "Paul",
+    "license": "MIT",
+    "dependencies": {
+      "dotenv": "^16.0.3"
+    },
+    "devDependencies": {
+      "chai": "^4.3.6",
+      "mocha": "^10.2.0",
+      "sinon": "^15.0.1",
+      "eslint": "^8.44.0"
+    }
+  }
+  

@@ -1,0 +1,15 @@
+// config/default.json
+
+{
+    "droneRoles": {
+      "search": 20,
+      "front": 20,
+      "back": 60
+    },
+    "communication": {
+      "frequency": "2.4GHz",
+      "messageTimeout": 2000,
+      "maxPeers": 10
+    }
+  }
+  
