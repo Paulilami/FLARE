@@ -1,59 +1,68 @@
 {
   "drones": [
     {
-      "droneID": "444",
+      "droneID": "1212",
       "active": false,
       "role": "unassigned",
       "capabilities": {
         "hasCamera": false,
         "hasSensors": false
-      }
-    },
-    {
-      "droneID": {
-        "droneID": "444",
-        "active": false,
-        "role": "unassigned",
-        "capabilities": {
-          "hasCamera": false,
-          "hasSensors": false
-        }
       },
-      "active": false,
-      "role": "unassigned",
-      "capabilities": {
-        "hasCamera": false,
-        "hasSensors": false
-      }
+      "port": "1212"
     }
   ],
-  "protocols": {
-    "search": {
-      "maxDistance": 100,
-      "scanInterval": 5
-    },
-    "rescue": {
-      "responseTime": 10,
-      "targetIdentification": true
-    },
-    "surveillance": {
-      "patrolFrequency": 15,
-      "alertOnSuspiciousActivity": true
-    }
-  },
   "roles": {
     "search": 20,
     "front": 20,
-    "back": 60
+    "back": 60,
+    "custom": 0
+  },
+  "protocols": {
+    "search": {
+      "maxDistance": 200,
+      "scanInterval": 5,
+      "signalStrength": "high",
+      "targetRecognition": true
+    },
+    "rescue": {
+      "responseTime": 15,
+      "searchRadius": 100,
+      "communicationFallback": "signalBoost",
+      "emergencyMode": true
+    },
+    "surveillance": {
+      "patrolFrequency": 30,
+      "recordingEnabled": true,
+      "alertLevel": "high"
+    },
+    "custom": {
+      "customParameter1": "value1",
+      "customParameter2": "value2"
+    }
   },
   "communication": {
-    "udpPort": 8080,
-    "gossipInterval": 2,
-    "messageQualityThreshold": 0.75
+    "udpServerPort": 7000,
+    "udpClientPort": 8001,
+    "gossipInterval": 3,
+    "messageQualityThreshold": 0.85,
+    "pingInterval": 10,
+    "maxRetryAttempts": 5
   },
   "system": {
-    "maxRetries": 3,
-    "retryInterval": 5,
-    "backupProtocolEnabled": true
+    "maxRetries": 5,
+    "retryInterval": 3,
+    "backupProtocolEnabled": true,
+    "logLevel": "info",
+    "monitorInterval": 15
+  },
+  "environment": {
+    "defaultSearchHeight": [
+      5,
+      20
+    ],
+    "defaultFlySpeed": 10,
+    "weatherSensitivity": "medium",
+    "obstacleDetectionRange": 50,
+    "terrainAdaptation": true
   }
 }

@@ -1,13 +1,33 @@
 const DroneRegister = require('../drones/DroneRegister');
 const Logger = require('../utils/Logger');
+const DroneUtils = require('../utils/DroneUtils');
 
 class SearchProtocol {
   static run(context) {
     const searchDrones = DroneRegister.getAllDrones().filter(drone => drone.role === 'search');
-    Logger.log(`Search Protocol initiated with ${searchDrones.length} search drone(s).`);
+    if (searchDrones.length === 0) {
+      Logger.warn('No drones assigned to the search role.');
+      return;
+    }
+
+    Logger.log(`Search Protocol initiated with ${searchDrones.length} drone(s).`);
 
     searchDrones.forEach(drone => {
-      drone.scanArea();
+      drone.activate();
+      const { maxDistance, scanPattern, targetRecognition } = context.parameters || {};
+
+      if (DroneUtils.hasCamera(drone.droneID) && targetRecognition) {
+        const image = DroneUtils.captureImage(drone.droneID);
+        const processedImage = DroneUtils.processImage(image);
+        const targets = DroneUtils.detectObjects(processedImage.details);
+        
+        if (targets.length > 0) {
+          Logger.log(`Target detected by drone ${drone.droneID}. Initiating response action.`);
+          drone.sendSignal('target-found', targets);
+        }
+      }
+
+      drone.scanArea({ distance: maxDistance || 100, pattern: scanPattern || 'grid' });
     });
 
     Logger.log('Search Protocol executed successfully.');

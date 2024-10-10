@@ -26,7 +26,7 @@ class EnvironmentAnalysis {
     const data = DroneUtils.readEnvironmentData(this.droneID);
     if (data) {
       this.environmentData = data;
-      Logger.log(`Environment data captured by drone ${this.droneID}.`);
+      Logger.log(`Environment data captured by drone ${this.droneID}: ${JSON.stringify(this.environmentData)}`);
     } else {
       Logger.error(`Failed to capture environment data for drone ${this.droneID}.`);
     }
@@ -62,7 +62,7 @@ class EnvironmentAnalysis {
     }
 
     const weather = DroneUtils.analyzeWeather(this.environmentData);
-    Logger.log(`Weather conditions evaluated as "${weather.condition}" with temperature: ${weather.temperature}°C.`);
+    Logger.log(`Weather conditions evaluated as "${weather.condition}" with temperature: ${weather.temperature}°C by drone ${this.droneID}.`);
     return weather;
   }
 }

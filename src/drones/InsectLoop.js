@@ -2,7 +2,7 @@ const DroneRegister = require('./DroneRegister');
 const Logger = require('../utils/Logger');
 
 class InsectLoop {
-  constructor(interval = 1000) {
+  constructor(interval = 2000) {
     this.interval = interval;
     this.loop = null;
   }
@@ -29,7 +29,7 @@ class InsectLoop {
     const drones = DroneRegister.getAllDrones();
     drones.forEach(drone => {
       if (!drone.active) {
-        Logger.log(`Drone ${drone.droneID} is inactive. Checking status...`);
+        Logger.log(`Drone ${drone.droneID} is inactive. Attempting to reactivate...`);
         drone.ping();
       }
     });
@@ -43,6 +43,26 @@ class InsectLoop {
         Logger.log(`Drone ${drone.droneID} position updated to ${JSON.stringify(position)}`);
       }
     });
+  }
+
+  monitorForAnomalies() {
+    const drones = DroneRegister.getAllDrones();
+    drones.forEach(drone => {
+      if (drone.active && Math.random() < 0.05) { // Random anomaly detection simulation
+        Logger.warn(`Potential anomaly detected with drone ${drone.droneID}.`);
+      }
+    });
+  }
+
+  startAdvancedMonitoring() {
+    if (!this.loop) {
+      this.loop = setInterval(() => {
+        this.checkDroneStatuses();
+        this.updateDronePositions();
+        this.monitorForAnomalies();
+      }, this.interval);
+      Logger.log('Advanced insect loop monitoring started.');
+    }
   }
 }
 

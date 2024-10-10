@@ -1,39 +1,61 @@
 {
-    "search": {
-      "task": "Locate targets in designated search areas.",
-      "parameters": {
-        "maxDistance": 100,
-        "scanPattern": "spiral",
-        "signalStrength": "high"
-      },
-      "responseActions": {
-        "onTargetFound": "sendAlert",
-        "onLostCommunication": "returnToBase"
-      }
+  "search": {
+    "task": "Locate specified targets within a defined area using visual and environmental data.",
+    "parameters": {
+      "maxDistance": 200,
+      "scanPattern": "spiral",
+      "signalStrength": "high",
+      "searchHeight": [2, 10],
+      "targetRecognition": true,
+      "cameraResolution": "1080p"
     },
-    "rescue": {
-      "task": "Rescue targets in critical conditions.",
-      "parameters": {
-        "maxResponseTime": 10,
-        "searchRadius": 50,
-        "communicationFallback": "signalBoost"
-      },
-      "responseActions": {
-        "onTargetIdentified": "hoverAndSignal",
-        "onObstacleDetected": "reroute"
-      }
+    "responseActions": {
+      "onTargetFound": "sendAlert",
+      "onLostCommunication": "returnToBase",
+      "onObstacleDetected": "reroute",
+      "onTargetLost": "initiateRescan"
+    }
+  },
+  "rescue": {
+    "task": "Identify and assist in rescue operations by locating targets and providing support.",
+    "parameters": {
+      "maxResponseTime": 15,
+      "searchRadius": 100,
+      "communicationFallback": "signalBoost",
+      "emergencyMode": true,
+      "environmentSensitivity": "high"
     },
-    "surveillance": {
-      "task": "Monitor and track specific areas or objects.",
-      "parameters": {
-        "patrolFrequency": 15,
-        "recordingEnabled": true,
-        "alertLevel": "medium"
-      },
-      "responseActions": {
-        "onSuspiciousActivity": "sendAlert",
-        "onPatrolComplete": "returnToBase"
-      }
+    "responseActions": {
+      "onTargetIdentified": "hoverAndSignal",
+      "onObstacleDetected": "reroute",
+      "onSafetyCompromise": "initiateEmergencyLanding"
+    }
+  },
+  "surveillance": {
+    "task": "Monitor and track areas or objects for extended periods, ensuring comprehensive coverage.",
+    "parameters": {
+      "patrolFrequency": 30,
+      "recordingEnabled": true,
+      "cameraZoom": [1, 5],
+      "alertLevel": "high",
+      "motionDetection": true
+    },
+    "responseActions": {
+      "onSuspiciousActivity": "sendAlert",
+      "onPatrolComplete": "returnToBase",
+      "onIntruderDetected": "trackAndRecord"
+    }
+  },
+  "custom": {
+    "task": "User-defined protocol for specific operational needs.",
+    "parameters": {
+      "customParameter1": "value1",
+      "customParameter2": "value2",
+      "customParameter3": "value3"
+    },
+    "responseActions": {
+      "onCustomEvent1": "customAction1",
+      "onCustomEvent2": "customAction2"
     }
   }
-  
+}

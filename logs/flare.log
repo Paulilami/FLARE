@@ -119,3 +119,70 @@
 [INFO] [2024-10-10T03:10:19.539Z] Surveillance Protocol executed successfully.
 [INFO] [2024-10-10T03:10:19.540Z] Surveillance Protocol executed.
 [INFO] [2024-10-10T03:10:19.541Z] Executing surveillance protocol.
+[INFO] [2024-10-10T03:50:19.962Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:50:40.222Z] Checking capabilities for drone: 1q
+[INFO] [2024-10-10T03:50:40.223Z] Capabilities for 1q: Camera=false, Sensors=false
+[INFO] [2024-10-10T03:50:40.224Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:50:40.227Z] Configuration saved successfully.
+[INFO] [2024-10-10T03:50:40.228Z] Drone 1q initialized and added to register.
+[INFO] [2024-10-10T03:50:40.228Z] Drone 1q added to FLARE System.
+[INFO] [2024-10-10T03:50:40.229Z] Drone 1q added successfully.
+[INFO] [2024-10-10T03:50:44.326Z] Checking capabilities for drone: [object Object]
+[INFO] [2024-10-10T03:50:44.327Z] Capabilities for [object Object]: Camera=false, Sensors=false
+[INFO] [2024-10-10T03:50:44.328Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:50:44.329Z] Configuration saved successfully.
+[INFO] [2024-10-10T03:50:44.330Z] Drone [object Object] initialized and added to register.
+[INFO] [2024-10-10T03:50:44.331Z] Checking capabilities for drone: [object Object]
+[INFO] [2024-10-10T03:50:44.331Z] Capabilities for [object Object]: Camera=false, Sensors=false
+[INFO] [2024-10-10T03:50:44.332Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:50:44.338Z] Configuration saved successfully.
+[INFO] [2024-10-10T03:50:44.338Z] Drone [object Object] initialized and added to register.
+[INFO] [2024-10-10T03:50:44.338Z] Checking capabilities for drone: [object Object]
+[INFO] [2024-10-10T03:50:44.339Z] Capabilities for [object Object]: Camera=false, Sensors=false
+[INFO] [2024-10-10T03:50:44.339Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:50:44.340Z] Configuration saved successfully.
+[INFO] [2024-10-10T03:50:44.340Z] Drone [object Object] initialized and added to register.
+[INFO] [2024-10-10T03:50:44.341Z] FLARE System initialized with drones: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[INFO] [2024-10-10T03:50:44.341Z] System initialized with drones: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[INFO] [2024-10-10T03:50:57.791Z] Drone [object Object] activated.
+[INFO] [2024-10-10T03:50:57.792Z] Drone [object Object] is pinging...
+[INFO] [2024-10-10T03:50:57.793Z] All drones have been started.
+[INFO] [2024-10-10T03:50:57.794Z] Drone [object Object] assigned role: unassigned
+[INFO] [2024-10-10T03:50:57.795Z] Roles assigned to drones.
+[INFO] [2024-10-10T03:50:57.796Z] System started and roles assigned.
+[INFO] [2024-10-10T03:51:08.533Z] Rescue Protocol initiated with 0 rescue drone(s).
+[INFO] [2024-10-10T03:51:08.534Z] Rescue Protocol executed successfully.
+[INFO] [2024-10-10T03:51:08.535Z] Rescue Protocol executed.
+[INFO] [2024-10-10T03:51:08.536Z] Executing rescue protocol.
+[INFO] [2024-10-10T03:51:13.653Z] Exiting FLARE system.
+[INFO] [2024-10-10T03:51:55.126Z] Configuration loaded successfully.
+[INFO] [2024-10-10T21:56:18.864Z] Configuration loaded successfully.
+[INFO] [2024-10-10T21:57:29.785Z] Configuration loaded successfully.
+[INFO] [2024-10-10T21:57:35.702Z] Capabilities for drone 1212 saved successfully.
+[INFO] [2024-10-10T21:57:35.702Z] Checking capabilities for drone 1212
+[INFO] [2024-10-10T21:57:35.705Z] Capabilities for drone 1212 saved successfully.
+[INFO] [2024-10-10T21:57:35.706Z] Capabilities for drone [object Object] saved successfully.
+[INFO] [2024-10-10T21:57:35.707Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T21:57:35.709Z] Configuration saved successfully.
+[INFO] [2024-10-10T21:57:35.710Z] Drone 1212 initialized and added to the register.
+[INFO] [2024-10-10T21:57:35.711Z] Drone 1212 initialized in Gossip Protocol.
+[INFO] [2024-10-10T21:57:35.713Z] Configuration saved successfully.
+[INFO] [2024-10-10T21:57:35.714Z] Drone configuration updated for 1212.
+[INFO] [2024-10-10T21:57:35.714Z] Drone 1212 added to FLARE System on port 1212.
+[INFO] [2024-10-10T21:57:35.715Z] Drone 1212 added successfully on port 1212.
+[WARN] [2024-10-10T21:57:40.144Z] Drone [object Object] is already registered.
+[INFO] [2024-10-10T21:57:40.145Z] FLARE System initialized with drones: [object Object]
+[INFO] [2024-10-10T21:57:40.146Z] System initialized with drones: [object Object]
+[ERROR] [2024-10-10T21:57:40.714Z] Cannot send message. Peer 1212 not found.
+[INFO] [2024-10-10T21:57:40.715Z] Heartbeat sent to 1212.
+[WARN] [2024-10-10T21:57:45.714Z] Drone 1212 is considered inactive. Last seen at 2024-10-10T21:57:35.711Z.
+[WARN] [2024-10-10T21:57:50.715Z] Drone 1212 is considered inactive. Last seen at 2024-10-10T21:57:35.711Z.
+[WARN] [2024-10-10T21:57:55.716Z] Drone 1212 is considered inactive. Last seen at 2024-10-10T21:57:35.711Z.
+[INFO] [2024-10-10T21:58:15.769Z] Configuration loaded successfully.
+[INFO] [2024-10-10T21:58:18.590Z] All drones have been started and communication initialized.
+[WARN] [2024-10-10T21:58:18.591Z] No drones available for role assignment.
+[INFO] [2024-10-10T21:58:18.592Z] Roles have been assigned to all active drones.
+[INFO] [2024-10-10T21:58:18.593Z] System started and roles assigned.
+[WARN] [2024-10-10T21:58:29.280Z] No drones assigned to the search role.
+[INFO] [2024-10-10T21:58:29.281Z] Search Protocol executed.
+[INFO] [2024-10-10T21:58:29.287Z] Executing search protocol.

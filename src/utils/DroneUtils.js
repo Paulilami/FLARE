@@ -21,11 +21,11 @@ class DroneUtils {
   }
 
   static captureImage(droneID) {
-    return `Image from ${droneID}`;
+    return `Image captured by ${droneID}`;
   }
 
   static captureImageWithZoom(droneID, zoomFactor) {
-    return `Zoomed image from ${droneID} with factor ${zoomFactor}`;
+    return `Zoomed image captured by ${droneID} with zoom factor ${zoomFactor}`;
   }
 
   static processImage(image) {
@@ -33,7 +33,7 @@ class DroneUtils {
   }
 
   static detectFaces(image) {
-    return [{ id: 1, position: { x: 50, y: 50 }, confidence: 0.98 }];
+    return [{ id: 1, position: { x: 50, y: 50 }, confidence: 0.95 }];
   }
 
   static identifyFace(face) {
@@ -45,7 +45,7 @@ class DroneUtils {
   }
 
   static detectObjects(image) {
-    return [{ type: 'car', position: { x: 30, y: 40 } }, { type: 'tree', position: { x: 60, y: 70 } }];
+    return [{ type: 'person', position: { x: 30, y: 40 } }, { type: 'tree', position: { x: 60, y: 70 } }];
   }
 
   static classifyObject(object) {
@@ -57,7 +57,7 @@ class DroneUtils {
   }
 
   static readSensorData(droneID) {
-    return { temperature: 22, humidity: 60, proximity: 5 };
+    return { temperature: 22, humidity: 60, proximity: 10 };
   }
 
   static processSensorData(data) {
@@ -77,7 +77,7 @@ class DroneUtils {
   }
 
   static analyzeWeather(environmentData) {
-    return { condition: environmentData.weather, temperature: 20 };
+    return { condition: environmentData.weather, temperature: 25 };
   }
 
   static loadPatternRecognitionModel() {
@@ -107,6 +107,19 @@ class DroneUtils {
 
   static getPosition(droneID) {
     return { x: Math.random() * 100, y: Math.random() * 100, timestamp: Date.now() };
+  }
+
+  static saveDroneData(droneID, data) {
+    const dataPath = path.join(__dirname, `../../data/${droneID}-data.json`);
+    fs.writeFileSync(dataPath, JSON.stringify(data, null, 2), 'utf-8');
+  }
+
+  static loadDroneData(droneID) {
+    const dataPath = path.join(__dirname, `../../data/${droneID}-data.json`);
+    if (fs.existsSync(dataPath)) {
+      return JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+    }
+    return null;
   }
 }
 

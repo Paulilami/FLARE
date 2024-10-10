@@ -1,15 +1,18 @@
 {
-    "search": {
-      "percentage": 20,
-      "description": "Drones that search the designated area at the maximum communication range."
-    },
-    "front": {
-      "percentage": 20,
-      "description": "Drones that form the first line and coordinate with the search and back drones."
-    },
-    "back": {
-      "percentage": 60,
-      "description": "Drones that follow and support the front drones, maintaining structure and communication."
-    }
+  "search": {
+    "percentage": 20,
+    "description": "Drones dedicated to actively scanning and searching designated areas at the maximum communication range."
+  },
+  "front": {
+    "percentage": 20,
+    "description": "Frontline drones that coordinate with both search and back drones, maintaining communication and acting as first responders."
+  },
+  "back": {
+    "percentage": 60,
+    "description": "Supporting drones that follow and provide backup for front drones, maintaining structural integrity and ensuring complete coverage."
+  },
+  "custom": {
+    "percentage": 0,
+    "description": "User-defined roles for specific operations, configured based on mission requirements."
   }
-  
+}

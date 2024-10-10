@@ -1,3 +1,65 @@
+FLARE/
+├── docs/
+│   ├── overview.mdx                                # High-level overview and system architecture
+│   ├── architecture.png                             # Updated communication flow diagram
+│   ├── protocol-spec.md                             # Detailed protocol specification
+│   └── usage-instructions.md                        # Usage instructions for users and developers
+├── src/
+│   ├── assets/                                      # Assets like images and diagrams
+│   ├── drones/                                      # Drone-specific management and configurations
+│   │   ├── DroneSetup.js                            # Initialization and configuration of individual drones
+│   │   ├── DroneControl.js                          # Centralized drone control commands (Start, Fly, etc.)
+│   │   ├── DroneRegister.js                         # Register for tracking active drones, roles, and status
+│   │   ├── DroneManager.js                          # Internal drone management (assign ID, activate, upload)
+│   │   ├── InsectLoop.js                            # Continuous movement and environment interaction logic
+│   │   └── DecisionMaker.js                         # Decision-making logic for each drone
+│   ├── communication/                               # All communication logic
+│   │   ├── gossip/                                  # Gossip protocol implementation
+│   │   │   └── GossipProtocol.js                    # Implementation of the Federated Gossip Protocol
+│   │   └── udp/                                     # UDP socket management for communication
+│   │       └── UDPManager.js                        # UDP socket management and data handling
+│   ├── system/                                      # High-level system management for FLARE
+│   │   ├── FLARESystem.js                           # Main workflow and system commands (initialize, add, start)
+│   │   ├── RoleManager.js                           # Role assignments and reconfiguration logic (search, front, back)
+│   │   └── ProtocolManager.js                       # Handles protocol-specific actions like search, rescue, surveillance
+│   ├── sensors/                                     # Camera, sensor, and object detection management
+│   │   ├── CameraHandler.js                         # Camera input and image processing logic
+│   │   ├── SensorManager.js                         # Sensor input management and environmental data handling
+│   │   ├── FaceIDHandler.js                         # Facial recognition for identifying specific individuals
+│   │   └── ObjectDetection.js                       # Object detection algorithms for identifying targets
+│   ├── analytics/                                   # Advanced analytics and environment processing
+│   │   ├── MovementAnalytics.js                     # Movement detection and tracking algorithms
+│   │   ├── EnvironmentAnalysis.js                   # Real-time analysis of drone surroundings
+│   │   └── PatternRecognition.js                    # In-depth pattern recognition (e.g., avoid hands)
+│   ├── utils/                                       # Utility functions
+│   │   ├── ConfigManager.js                         # Configuration management utilities
+│   │   ├── Logger.js                                # Centralized logging utility
+│   │   ├── Validator.js                             # Validation functions (input, status checks)
+│   │   └── DroneUtils.js                            # Drone-specific utility functions (battery, status checks)
+│   ├── protocols/                                   # Protocol-specific command implementations
+│   │   ├── SearchProtocol.js                        # Search protocol logic (e.g., search for objects, people)
+│   │   ├── RescueProtocol.js                        # Rescue-specific protocol logic
+│   │   └── SurveillanceProtocol.js                  # Surveillance-specific protocol logic
+│   └── main.js                                      # Entry point for initializing and running FLARE
+├── tests/                                           # Test files for different modules and functionalities
+│   ├── drone-tests/
+│   ├── communication-tests/
+│   ├── system-tests/
+│   ├── sensor-tests/
+│   ├── protocol-tests/
+│   └── utils-tests/
+├── scripts/                                         # Automation scripts for setup and management
+│   ├── setupDrone.sh                                # Script to initialize and upload protocol to drones
+│   └── resetConfig.sh                               # Script to reset configuration to defaults
+├── config/                                          # Configuration files for the entire system
+│   ├── default.json                                 # Default configuration settings
+│   ├── roles.json                                   # Role distribution settings
+│   └── protocols.json                               # Protocol-specific configurations
+├── README.md                                        # Primary project documentation and usage instructions
+├── LICENSE                                          # Open-source license details
+├── package.json                                     # Node.js dependencies and project metadata
+└── .env                                             # Environment variables for the project
+
 Tech Stack
 Node.js: Main language for implementing the protocol and communication logic.
 UDP Sockets (dgram module): For implementing the low-level UDP communication.

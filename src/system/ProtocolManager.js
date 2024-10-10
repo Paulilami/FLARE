@@ -41,6 +41,10 @@ class ProtocolManager {
         Logger.error(`Protocol "${protocol}" configuration not recognized.`);
     }
   }
+
+  static getAvailableProtocols() {
+    return ['search', 'rescue', 'surveillance'];
+  }
 }
 
 module.exports = ProtocolManager;

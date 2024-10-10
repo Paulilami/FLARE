@@ -9,7 +9,7 @@ class DecisionMaker {
       return;
     }
 
-    switch (drone.role) {
+    switch (drone.getRole()) {
       case 'search':
         this.handleSearchDrone(drone, context);
         break;
@@ -20,7 +20,7 @@ class DecisionMaker {
         this.handleBackDrone(drone, context);
         break;
       default:
-        Logger.log(`No decision logic defined for drone ${droneID} with role ${drone.role}.`);
+        Logger.log(`No decision logic defined for drone ${droneID} with role ${drone.getRole()}.`);
     }
   }
 
@@ -29,7 +29,7 @@ class DecisionMaker {
       Logger.log(`Drone ${drone.droneID} found the target. Sending signal to front drones.`);
       drone.sendSignal('target-found');
     } else {
-      drone.scanArea();
+      drone.scanArea({ distance: context.scanDistance || 100 });
     }
   }
 
@@ -37,13 +37,17 @@ class DecisionMaker {
     if (context.signal === 'target-found') {
       Logger.log(`Front drone ${drone.droneID} received target signal. Updating back drones.`);
       drone.relaySignal('target-found');
+    } else {
+      drone.hoverAndMonitor();
     }
   }
 
   static handleBackDrone(drone, context) {
     if (context.signal === 'target-found') {
       Logger.log(`Back drone ${drone.droneID} received target signal. Moving to support.`);
-      drone.moveToSupport();
+      drone.moveToLocation(context.targetLocation || { x: 0, y: 0 });
+    } else {
+      drone.followRoute(context.patrolRoute || [{ x: 0, y: 0 }]);
     }
   }
 }

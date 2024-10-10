@@ -6,17 +6,17 @@ const Logger = require('./utils/Logger');
 (async () => {
   const inquirerModule = await import('inquirer');
   const open = await import('open');
-  const inquirer = inquirerModule.default; 
+  const inquirer = inquirerModule.default;
 
   const initializeSystem = async () => {
     const config = ConfigManager.getConfig();
     const droneIDs = config.drones || [];
     if (droneIDs.length === 0) {
-      Logger.log('No drones configured in the system. Please add drones.');
+      Logger.log('No drones configured. Please add drones using the add-drone command.');
       return;
     }
     FLARESystem.initialize(droneIDs);
-    Logger.log('System initialized with drones: ' + droneIDs.join(', '));
+    Logger.log(`System initialized with drones: ${droneIDs.join(', ')}`);
   };
 
   const addDrone = async () => {
@@ -25,11 +25,16 @@ const Logger = require('./utils/Logger');
         type: 'input',
         name: 'droneID',
         message: 'Enter Drone ID to add:'
+      },
+      {
+        type: 'input',
+        name: 'dronePort',
+        message: 'Enter Drone UDP Port:'
       }
     ]);
-    const { droneID } = answers;
-    FLARESystem.addDrone(droneID);
-    Logger.log(`Drone ${droneID} added successfully.`);
+    const { droneID, dronePort } = answers;
+    FLARESystem.addDrone(droneID, dronePort);
+    Logger.log(`Drone ${droneID} added successfully on port ${dronePort}.`);
   };
 
   const startSystem = () => {
@@ -53,7 +58,7 @@ const Logger = require('./utils/Logger');
   };
 
   const openMap = () => {
-    open('https://www.google.com/maps');
+    open('https://maps.google.com');
     Logger.log('Google Maps opened for real-time location tracking.');
   };
 
