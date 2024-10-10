@@ -1,0 +1,15 @@
+{
+    "search": {
+      "percentage": 20,
+      "description": "Drones that search the designated area at the maximum communication range."
+    },
+    "front": {
+      "percentage": 20,
+      "description": "Drones that form the first line and coordinate with the search and back drones."
+    },
+    "back": {
+      "percentage": 60,
+      "description": "Drones that follow and support the front drones, maintaining structure and communication."
+    }
+  }
+  

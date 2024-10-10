@@ -1,0 +1,121 @@
+[INFO] [2024-10-10T02:56:31.726Z] Configuration loaded successfully.
+[INFO] [2024-10-10T02:56:37.864Z] Configuration loaded successfully.
+[INFO] [2024-10-10T02:58:19.013Z] Configuration loaded successfully.
+[INFO] [2024-10-10T02:59:02.805Z] Configuration loaded successfully.
+[INFO] [2024-10-10T02:59:17.473Z] Checking capabilities for drone: 1212
+[INFO] [2024-10-10T02:59:17.474Z] Updated configuration for 1212:
+[INFO] [2024-10-10T02:59:17.475Z] Drone 1212 added to the register.
+[INFO] [2024-10-10T02:59:17.476Z] Drone 1212 initialized and added to register.
+[INFO] [2024-10-10T02:59:17.477Z] Drone 1212 added to FLARE System.
+[INFO] [2024-10-10T02:59:17.477Z] Drone 1212 added successfully.
+[INFO] [2024-10-10T02:59:25.462Z] No drones configured in the system. Please add drones.
+[INFO] [2024-10-10T02:59:33.180Z] Drone 1212 activated.
+[INFO] [2024-10-10T02:59:33.181Z] Drone 1212 is pinging...
+[INFO] [2024-10-10T02:59:33.182Z] All drones have been started.
+[INFO] [2024-10-10T02:59:33.183Z] Insect loop started.
+[INFO] [2024-10-10T02:59:33.184Z] FLARE System started.
+[INFO] [2024-10-10T03:00:37.121Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:02:09.038Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:02:14.640Z] Checking capabilities for drone: 124422
+[INFO] [2024-10-10T03:02:14.641Z] Updated configuration for 124422:
+[INFO] [2024-10-10T03:02:14.642Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:02:14.643Z] Drone 124422 initialized and added to register.
+[INFO] [2024-10-10T03:02:14.644Z] Drone 124422 added to FLARE System.
+[INFO] [2024-10-10T03:02:14.645Z] Drone 124422 added successfully.
+[INFO] [2024-10-10T03:02:22.728Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:02:23.952Z] Exiting FLARE system.
+[INFO] [2024-10-10T03:02:25.970Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:02:33.320Z] Checking capabilities for drone: 3333333
+[INFO] [2024-10-10T03:02:33.321Z] Updated configuration for 3333333:
+[INFO] [2024-10-10T03:02:33.322Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:02:33.324Z] Drone 3333333 initialized and added to register.
+[INFO] [2024-10-10T03:02:33.324Z] Drone 3333333 added to FLARE System.
+[INFO] [2024-10-10T03:02:33.325Z] Drone 3333333 added successfully.
+[INFO] [2024-10-10T03:02:37.398Z] Checking capabilities for drone: 4444444444
+[INFO] [2024-10-10T03:02:37.399Z] Updated configuration for 4444444444:
+[INFO] [2024-10-10T03:02:37.400Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:02:37.401Z] Drone 4444444444 initialized and added to register.
+[INFO] [2024-10-10T03:02:37.401Z] Drone 4444444444 added to FLARE System.
+[INFO] [2024-10-10T03:02:37.403Z] Drone 4444444444 added successfully.
+[INFO] [2024-10-10T03:02:40.597Z] Checking capabilities for drone: 777777
+[INFO] [2024-10-10T03:02:40.598Z] Updated configuration for 777777:
+[INFO] [2024-10-10T03:02:40.598Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:02:40.599Z] Drone 777777 initialized and added to register.
+[INFO] [2024-10-10T03:02:40.599Z] Drone 777777 added to FLARE System.
+[INFO] [2024-10-10T03:02:40.600Z] Drone 777777 added successfully.
+[INFO] [2024-10-10T03:02:45.225Z] No drones configured in the system. Please add drones.
+[INFO] [2024-10-10T03:02:48.727Z] Drone [object Object] activated.
+[INFO] [2024-10-10T03:02:48.728Z] Drone [object Object] is pinging...
+[INFO] [2024-10-10T03:02:48.729Z] All drones have been started.
+[INFO] [2024-10-10T03:02:48.730Z] Insect loop started.
+[INFO] [2024-10-10T03:02:48.731Z] FLARE System started.
+[INFO] [2024-10-10T03:02:48.732Z] Drone [object Object] assigned role: back
+[INFO] [2024-10-10T03:02:48.732Z] Roles have been assigned to all drones.
+[INFO] [2024-10-10T03:02:48.733Z] Roles assigned to drones.
+[INFO] [2024-10-10T03:02:48.733Z] System started and roles assigned.
+[INFO] [2024-10-10T03:04:13.653Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:04:14.050Z] No drones configured in the system. Please add drones.
+[INFO] [2024-10-10T03:04:27.730Z] Checking capabilities for drone: 444444
+[INFO] [2024-10-10T03:04:27.731Z] Updated configuration for 444444:
+[INFO] [2024-10-10T03:04:27.732Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:04:27.733Z] Drone 444444 initialized and added to register.
+[INFO] [2024-10-10T03:04:27.733Z] Drone 444444 added to FLARE System.
+[INFO] [2024-10-10T03:04:27.734Z] Drone 444444 added successfully.
+[INFO] [2024-10-10T03:04:29.121Z] No drones configured in the system. Please add drones.
+[INFO] [2024-10-10T03:04:45.520Z] Search Protocol initiated with 0 search drone(s).
+[INFO] [2024-10-10T03:04:45.521Z] Search Protocol executed successfully.
+[INFO] [2024-10-10T03:04:45.522Z] Search Protocol executed.
+[INFO] [2024-10-10T03:04:45.523Z] Executing search protocol.
+[INFO] [2024-10-10T03:05:48.182Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:05:52.118Z] Checking capabilities for drone: 33333
+[INFO] [2024-10-10T03:05:52.119Z] Updated configuration for 33333:
+[INFO] [2024-10-10T03:05:52.120Z] Drone [object Object] added to the register.
+[ERROR] [2024-10-10T03:05:52.122Z] Failed to save configuration: Converting circular structure to JSON
+    --> starting at object with constructor 'Array'
+    |     index 0 -> object with constructor 'DroneSetup'
+    |     property 'config' -> object with constructor 'Object'
+    --- property 'drones' closes the circle
+[INFO] [2024-10-10T03:05:52.124Z] Drone 33333 initialized and added to register.
+[INFO] [2024-10-10T03:05:52.125Z] Drone 33333 added to FLARE System.
+[INFO] [2024-10-10T03:05:52.126Z] Drone 33333 added successfully.
+[INFO] [2024-10-10T03:07:44.974Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:07:48.228Z] Checking capabilities for drone: 4444
+[INFO] [2024-10-10T03:07:48.229Z] Updated configuration for 4444:
+[INFO] [2024-10-10T03:07:48.230Z] Drone [object Object] added to the register.
+[ERROR] [2024-10-10T03:07:48.231Z] Failed to save configuration: Converting circular structure to JSON
+    --> starting at object with constructor 'Array'
+    |     index 0 -> object with constructor 'DroneSetup'
+    |     property 'config' -> object with constructor 'Object'
+    --- property 'drones' closes the circle
+[INFO] [2024-10-10T03:07:48.233Z] Drone 4444 initialized and added to register.
+[INFO] [2024-10-10T03:07:48.233Z] Drone 4444 added to FLARE System.
+[INFO] [2024-10-10T03:07:48.234Z] Drone 4444 added successfully.
+[INFO] [2024-10-10T03:09:52.152Z] Configuration loaded successfully.
+[INFO] [2024-10-10T03:09:55.990Z] Checking capabilities for drone: 444
+[INFO] [2024-10-10T03:09:55.992Z] Capabilities for 444: Camera=false, Sensors=false
+[INFO] [2024-10-10T03:09:55.993Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:09:55.995Z] Configuration saved successfully.
+[INFO] [2024-10-10T03:09:55.996Z] Drone 444 initialized and added to register.
+[INFO] [2024-10-10T03:09:55.996Z] Drone 444 added to FLARE System.
+[INFO] [2024-10-10T03:09:55.996Z] Drone 444 added successfully.
+[INFO] [2024-10-10T03:09:59.450Z] Checking capabilities for drone: [object Object]
+[INFO] [2024-10-10T03:09:59.450Z] Capabilities for [object Object]: Camera=false, Sensors=false
+[INFO] [2024-10-10T03:09:59.451Z] Drone [object Object] added to the register.
+[INFO] [2024-10-10T03:09:59.452Z] Configuration saved successfully.
+[INFO] [2024-10-10T03:09:59.453Z] Drone [object Object] initialized and added to register.
+[INFO] [2024-10-10T03:09:59.453Z] FLARE System initialized with drones: [object Object], [object Object]
+[INFO] [2024-10-10T03:09:59.455Z] System initialized with drones: [object Object], [object Object]
+[INFO] [2024-10-10T03:10:06.480Z] Drone [object Object] activated.
+[INFO] [2024-10-10T03:10:06.481Z] Drone [object Object] is pinging...
+[INFO] [2024-10-10T03:10:06.481Z] All drones have been started.
+[INFO] [2024-10-10T03:10:06.483Z] Drone [object Object] assigned role: unassigned
+[INFO] [2024-10-10T03:10:06.483Z] Roles assigned to drones.
+[INFO] [2024-10-10T03:10:06.484Z] System started and roles assigned.
+[INFO] [2024-10-10T03:10:12.087Z] Search Protocol initiated with 0 search drone(s).
+[INFO] [2024-10-10T03:10:12.088Z] Search Protocol executed successfully.
+[INFO] [2024-10-10T03:10:12.088Z] Search Protocol executed.
+[INFO] [2024-10-10T03:10:12.090Z] Executing search protocol.
+[INFO] [2024-10-10T03:10:19.538Z] Surveillance Protocol initiated with 0 drone(s).
+[INFO] [2024-10-10T03:10:19.539Z] Surveillance Protocol executed successfully.
+[INFO] [2024-10-10T03:10:19.540Z] Surveillance Protocol executed.
+[INFO] [2024-10-10T03:10:19.541Z] Executing surveillance protocol.

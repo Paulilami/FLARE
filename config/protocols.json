@@ -1,0 +1,39 @@
+{
+    "search": {
+      "task": "Locate targets in designated search areas.",
+      "parameters": {
+        "maxDistance": 100,
+        "scanPattern": "spiral",
+        "signalStrength": "high"
+      },
+      "responseActions": {
+        "onTargetFound": "sendAlert",
+        "onLostCommunication": "returnToBase"
+      }
+    },
+    "rescue": {
+      "task": "Rescue targets in critical conditions.",
+      "parameters": {
+        "maxResponseTime": 10,
+        "searchRadius": 50,
+        "communicationFallback": "signalBoost"
+      },
+      "responseActions": {
+        "onTargetIdentified": "hoverAndSignal",
+        "onObstacleDetected": "reroute"
+      }
+    },
+    "surveillance": {
+      "task": "Monitor and track specific areas or objects.",
+      "parameters": {
+        "patrolFrequency": 15,
+        "recordingEnabled": true,
+        "alertLevel": "medium"
+      },
+      "responseActions": {
+        "onSuspiciousActivity": "sendAlert",
+        "onPatrolComplete": "returnToBase"
+      }
+    }
+  }
+  

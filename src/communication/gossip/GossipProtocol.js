@@ -1,39 +1,55 @@
-// src/communication/gossip/GossipProtocol.js
+const UDPManager = require('../udp/UDPManager');
+const DroneRegister = require('../../drones/DroneRegister');
+const Logger = require('../../utils/Logger');
 
-const peers = [];
-const messageHistory = new Set();
-let sendMessageHandler;
-
-const registerPeer = (ip, port) => {
-  if (!peers.some(peer => peer.ip === ip && peer.port === port)) {
-    peers.push({ ip, port });
-    console.log(`[INFO] Registered new peer: ${ip}:${port}`);
+class GossipProtocol {
+  constructor() {
+    this.peers = {};
   }
-};
 
-const setSendMessageHandler = (handler) => {
-  sendMessageHandler = handler;
-};
+  initialize(droneID) {
+    const drone = DroneRegister.getDrone(droneID);
+    if (drone) {
+      this.peers[droneID] = drone;
+      Logger.log(`Drone ${droneID} added to Gossip Protocol.`);
+    }
+  }
 
-const propagateMessage = (message) => {
-  if (sendMessageHandler) {
-    peers.forEach(peer => {
-      sendMessageHandler(message, peer.port, peer.ip);
+  sendMessage(senderID, message) {
+    const sender = this.peers[senderID];
+    if (sender) {
+      const neighbors = this.getNeighbors(senderID);
+      neighbors.forEach(neighbor => {
+        UDPManager.send(neighbor.address, message);
+      });
+      Logger.log(`Message from ${senderID} sent to neighbors.`);
+    }
+  }
+
+  receiveMessage(senderID, message) {
+    Logger.log(`Message received from ${senderID}: ${message}`);
+    if (!this.peers[senderID]) {
+      this.peers[senderID] = { droneID: senderID, status: 'active' };
+      Logger.log(`New drone ${senderID} added to Gossip Protocol.`);
+    }
+  }
+
+  getNeighbors(droneID) {
+    return Object.values(this.peers).filter(drone => drone.droneID !== droneID);
+  }
+
+  updateStatus(droneID, status) {
+    if (this.peers[droneID]) {
+      this.peers[droneID].status = status;
+      Logger.log(`Drone ${droneID} status updated to ${status}.`);
+    }
+  }
+
+  broadcast(message) {
+    Object.keys(this.peers).forEach(droneID => {
+      this.sendMessage(droneID, message);
     });
   }
-};
+}
 
-const handleMessage = (msg, rinfo) => {
-  const message = msg.toString();
-  const parsedMessage = JSON.parse(message);
-
-  if (parsedMessage.type === 'command' && parsedMessage.action === 'start') {
-    console.log(`[INFO] Received start command from ${rinfo.address}:${rinfo.port}`);
-    propagateMessage(message);
-  } else if (!messageHistory.has(message)) {
-    messageHistory.add(message);
-    propagateMessage(message);
-  }
-};
-
-module.exports = { registerPeer, handleMessage, setSendMessageHandler, peers };
+module.exports = new GossipProtocol();

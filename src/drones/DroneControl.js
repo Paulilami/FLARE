@@ -1,20 +1,42 @@
-// src/drones/DroneControl.js
+const DroneRegister = require('./DroneRegister');
+const Logger = require('../utils/Logger');
 
-const { getPeers } = require('./DroneSetup');
-const { sendUDPMessage } = require('../communication/udp/UDPManager');
-
-const startCommand = () => {
-  const peers = getPeers();
-  if (peers.length === 0) {
-    console.log('[ERROR] No peers found. Please ensure drones are correctly registered.');
-    return;
+class DroneControl {
+  static startAll() {
+    const drones = DroneRegister.getAllDrones();
+    drones.forEach(drone => {
+      drone.activate();
+    });
+    Logger.log('All drones have been started.');
   }
-  console.log('[INFO] Sending start command to the following peers:', peers); // Log peers to confirm registration
-  const message = JSON.stringify({ type: 'command', action: 'start' });
-  peers.forEach(peer => {
-    console.log(`[INFO] Sending start command to peer at ${peer.ip}:${peer.port}`);
-    sendUDPMessage(message, peer.port, peer.ip);
-  });
-};
 
-module.exports = { startCommand };
+  static assignRoles() {
+    const drones = DroneRegister.getAllDrones();
+    const totalDrones = drones.length;
+    const searchCount = Math.floor(totalDrones * 0.2);
+    const frontCount = Math.floor(totalDrones * 0.2);
+    const backCount = totalDrones - searchCount - frontCount;
+    let assigned = 0;
+
+    drones.slice(0, searchCount).forEach(drone => {
+      drone.setRole('search');
+      Logger.log(`Drone ${drone.droneID} assigned role: search`);
+      assigned++;
+    });
+
+    drones.slice(assigned, assigned + frontCount).forEach(drone => {
+      drone.setRole('front');
+      Logger.log(`Drone ${drone.droneID} assigned role: front`);
+      assigned++;
+    });
+
+    drones.slice(assigned).forEach(drone => {
+      drone.setRole('back');
+      Logger.log(`Drone ${drone.droneID} assigned role: back`);
+    });
+
+    Logger.log('Roles have been assigned to all drones.');
+  }
+}
+
+module.exports = DroneControl;

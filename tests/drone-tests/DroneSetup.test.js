@@ -1,5 +1,3 @@
-// tests/drone-tests/DroneSetup.test.js
-
 const { initializeDrone, addPeer, getPeers, getStatus } = require('../../src/drones/DroneSetup');
 const assert = require('assert');
 
@@ -9,7 +7,7 @@ describe('DroneSetup Tests', () => {
     setTimeout(() => {
       assert.strictEqual(getStatus(), 'active');
       done();
-    }, 100);  // Short delay to allow async bind operation to complete
+    }, 100);  
   });
 
   it('should add a new peer to the peers list', () => {

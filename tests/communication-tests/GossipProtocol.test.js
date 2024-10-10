@@ -1,5 +1,3 @@
-// tests/communication-tests/GossipProtocol.test.js
-
 const { registerPeer, handleMessage, peers } = require('../../src/communication/gossip/GossipProtocol');
 const assert = require('assert');
 

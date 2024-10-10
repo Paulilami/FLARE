@@ -1,7 +1,12 @@
-CONFIG_FILE="./config/default.json"
+#!/bin/bash
 
-echo "Resetting configuration to default values..."
+CONFIG_PATH="../config/default.json"
+DEFAULT_CONFIG="../config/default.json.bak"
 
-cp ./config/default.json.backup $CONFIG_FILE
-
-echo "Configuration reset successfully."
+if [ -f "$DEFAULT_CONFIG" ]; then
+  cp "$DEFAULT_CONFIG" "$CONFIG_PATH"
+  echo "Configuration reset to defaults."
+else
+  echo "Backup configuration not found. Unable to reset."
+  exit 1
+fi

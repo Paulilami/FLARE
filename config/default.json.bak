@@ -1,0 +1,32 @@
+{
+  "drones": [],
+  "protocols": {
+    "search": {
+      "maxDistance": 100,
+      "scanInterval": 5
+    },
+    "rescue": {
+      "responseTime": 10,
+      "targetIdentification": true
+    },
+    "surveillance": {
+      "patrolFrequency": 15,
+      "alertOnSuspiciousActivity": true
+    }
+  },
+  "roles": {
+    "search": 20,
+    "front": 20,
+    "back": 60
+  },
+  "communication": {
+    "udpPort": 8080,
+    "gossipInterval": 2,
+    "messageQualityThreshold": 0.75
+  },
+  "system": {
+    "maxRetries": 3,
+    "retryInterval": 5,
+    "backupProtocolEnabled": true
+  }
+}

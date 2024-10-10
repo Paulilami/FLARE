@@ -1,5 +1,3 @@
-// src/drones/DroneConfig.js
-
 const config = require('../../config/default.json');
 
 const roleRatios = {

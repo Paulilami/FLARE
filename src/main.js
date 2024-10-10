@@ -1,24 +1,95 @@
-// src/main.js
+const FLARESystem = require('./system/FLARESystem');
+const ConfigManager = require('./utils/ConfigManager');
+const ProtocolManager = require('./system/ProtocolManager');
+const Logger = require('./utils/Logger');
 
-const { initUDPServer } = require('./communication/udp/UDPManager');
-const { registerPeer } = require('./communication/gossip/GossipProtocol');
-const { initializeDrone, getStatus } = require('./drones/DroneSetup');
-const { startCommand } = require('./drones/DroneControl');
-const { info } = require('./utils/Logger');
+(async () => {
+  const inquirerModule = await import('inquirer');
+  const open = await import('open');
+  const inquirer = inquirerModule.default; 
 
-const initFLARE = () => {
-  const droneID = process.env.DRONE_ID || `drone${Math.floor(Math.random() * 100)}`;
-  const port = process.env.UDP_CLIENT_PORT || 6001;
+  const initializeSystem = async () => {
+    const config = ConfigManager.getConfig();
+    const droneIDs = config.drones || [];
+    if (droneIDs.length === 0) {
+      Logger.log('No drones configured in the system. Please add drones.');
+      return;
+    }
+    FLARESystem.initialize(droneIDs);
+    Logger.log('System initialized with drones: ' + droneIDs.join(', '));
+  };
 
-  initUDPServer();
-  initializeDrone(droneID, port);
-  registerPeer('localhost', port);  // Register itself as a peer
-  
-  console.log(`[INFO] Drone ${droneID} initialized and registered as a peer at localhost:${port}`);
+  const addDrone = async () => {
+    const answers = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'droneID',
+        message: 'Enter Drone ID to add:'
+      }
+    ]);
+    const { droneID } = answers;
+    FLARESystem.addDrone(droneID);
+    Logger.log(`Drone ${droneID} added successfully.`);
+  };
 
-  setTimeout(() => {
-    info(`Drone ${droneID} initialized with status: ${getStatus()}`);
-  }, 500);
-};
+  const startSystem = () => {
+    FLARESystem.start();
+    FLARESystem.assignRoles();
+    Logger.log('System started and roles assigned.');
+  };
 
-initFLARE();
+  const executeProtocol = async () => {
+    const answers = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'protocol',
+        message: 'Select protocol to execute:',
+        choices: ['search', 'rescue', 'surveillance']
+      }
+    ]);
+    const { protocol } = answers;
+    ProtocolManager.executeProtocol(protocol, {});
+    Logger.log(`Executing ${protocol} protocol.`);
+  };
+
+  const openMap = () => {
+    open('https://www.google.com/maps');
+    Logger.log('Google Maps opened for real-time location tracking.');
+  };
+
+  const mainMenu = async () => {
+    const answers = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'command',
+        message: 'Select a command to run:',
+        choices: ['Initialize System', 'Add Drone', 'Start System', 'Execute Protocol', 'Open Map View', 'Exit']
+      }
+    ]);
+
+    switch (answers.command) {
+      case 'Initialize System':
+        await initializeSystem();
+        break;
+      case 'Add Drone':
+        await addDrone();
+        break;
+      case 'Start System':
+        startSystem();
+        break;
+      case 'Execute Protocol':
+        await executeProtocol();
+        break;
+      case 'Open Map View':
+        openMap();
+        break;
+      case 'Exit':
+        Logger.log('Exiting FLARE system.');
+        process.exit();
+    }
+
+    await mainMenu();
+  };
+
+  mainMenu();
+})();

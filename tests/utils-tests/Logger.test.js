@@ -1,5 +1,3 @@
-// tests/utils-tests/Logger.test.js
-
 const { info, error, debug } = require('../../src/utils/Logger');
 const assert = require('assert');
 const sinon = require('sinon');

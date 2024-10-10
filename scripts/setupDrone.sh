@@ -1,19 +1,23 @@
 #!/bin/bash
 
-DRONE_IP=$1
-DRONE_PORT=$2
-DRONE_ID=$3
+set -e
 
-if [ -z "$DRONE_IP" ] || [ -z "$DRONE_PORT" ] || [ -z "$DRONE_ID" ]; then
-  echo "Usage: ./setupDrone.sh <DRONE_IP> <DRONE_PORT> <DRONE_ID>"
+if [ -z "$1" ]; then
+  echo "Please specify the drone ID as an argument."
   exit 1
 fi
 
-echo "Initializing drone setup..."
-echo "Configuring drone with ID: $DRONE_ID at $DRONE_IP:$DRONE_PORT"
+DRONE_ID=$1
+CONFIG_PATH="../config/default.json"
+DRONE_PATH="/drone/$DRONE_ID"
 
-# Send initial setup commands to the drone
-echo "Sending setup command to drone..."
-echo "setup:$DRONE_ID" | nc -u $DRONE_IP $DRONE_PORT
+echo "Initializing setup for drone $DRONE_ID..."
 
-echo "Drone setup completed successfully."
+mkdir -p $DRONE_PATH
+
+cp -r ../src/drones/* $DRONE_PATH/
+cp $CONFIG_PATH $DRONE_PATH/
+
+echo "Configuration and protocol files uploaded successfully to $DRONE_PATH."
+
+echo "Drone $DRONE_ID setup complete."
