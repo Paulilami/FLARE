@@ -162,4 +162,4 @@ FLARE/
 This project is licensed under the MIT License.
 
 ## Author
-FLARE Development Team
+Paul Ilami
